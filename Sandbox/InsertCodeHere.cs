@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sandbox
+namespace PizzaStore
 {
     public class InsertCodeHere
     {
