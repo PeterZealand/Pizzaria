@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sandbox
+namespace PizzaStore
 {
-    class Car
+    internal class Store
     {
     }
 }
