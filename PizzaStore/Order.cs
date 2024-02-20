@@ -8,5 +8,20 @@ namespace PizzaStore
 {
     internal class Order
     {
+        #region Instance fields
+
+        #endregion
+
+        #region Constructor
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+
+        #region Methods
+
+        #endregion
     }
 }
