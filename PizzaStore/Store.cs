@@ -9,7 +9,9 @@ namespace PizzaStore
     internal class Store
     {
         #region Instance fields
-        
+        /*
+        Pizza 1 = new pizza(Calzone, 50)
+
         #endregion
 
         #region Constructor
@@ -22,6 +24,8 @@ namespace PizzaStore
 
         #region Methods
        
+        */
         #endregion
+        
     }
 }

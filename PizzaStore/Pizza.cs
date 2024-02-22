@@ -10,16 +10,16 @@ namespace PizzaStore
     {
         #region Instance fields
 
-        string _name;
-        int _price;
+        private string _name;
+        private int _price;
 
         #endregion
 
         #region Constructor
-          public Pizza()
+          public Pizza(string Name, int Price )
         {
-            _name = "";
-            _price = 0;
+            _name = Name;
+            _price = Price;
         }
         #endregion
 
@@ -32,11 +32,16 @@ namespace PizzaStore
         public int Price
         { 
             get { return _price; } 
-            set { _name = value; } 
+            set { _price = value; } 
         }
         #endregion
 
         #region Methods
+
+        public override string ToString()
+        {
+            return $"name: {Name} - Price: {Price}";
+        }
 
         #endregion
 
