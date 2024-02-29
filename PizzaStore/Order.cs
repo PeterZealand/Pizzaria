@@ -15,8 +15,8 @@ namespace PizzaStore
         private double _taxProcent = 1.25;
         private double _deliveryCosts = 49;
         private int _orderId = 0;
-        
-
+        private Pizza _pizza;
+        private Customer _customer;
         #endregion
 
         #region Constructor
@@ -31,13 +31,13 @@ namespace PizzaStore
         #endregion
 
         #region Properties
-        public Pizza _pizza
+        public Pizza Pizza
         
         {
             get { return _pizza; }
             set { _pizza = value; }
         }
-        public Customer _customer
+        public Customer customer
         {
             get { return _customer; }
             set { _customer = value; }
@@ -79,7 +79,7 @@ namespace PizzaStore
 
         public override string ToString()
         {
-            return $"Moms {TaxProcent} - Leverings omkostninger {DeliveryCosts}";
+            return $"Moms {TaxProcent} - Leverings omkostninger {DeliveryCosts} Total price {CalcTotalPrice()}";
         }
 
         #endregion
