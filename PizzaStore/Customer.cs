@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace PizzaStore
         #endregion
 
         #region Constructor
-        public Customer(string Name, int Order, int OrderNumber)
+        public Customer(string Name)
         {
             _name = Name;
             _order = Order;
@@ -44,7 +45,10 @@ namespace PizzaStore
         #endregion
 
         #region Methods
-
+        public override string ToString()
+        {
+            return $"name: {Name}";
+        }
         #endregion
     }
 }

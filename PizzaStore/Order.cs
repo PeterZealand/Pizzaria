@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace PizzaStore
 {
@@ -10,25 +12,37 @@ namespace PizzaStore
     {
         #region Instance fields
 
-        private double _taxProcent;
-        private double _deliveryCosts;
-        Pizza p;
+        private double _taxProcent = 1.25;
+        private double _deliveryCosts = 49;
+        private int _orderId = 0;
+        
 
         #endregion
 
         #region Constructor
 
-        public Order()
+        public Order(int OrderId, Customer customer, Pizza pizza )
         {
-            /*
-            p = new Pizza();
-            TaxProcent = 1.39;
-            DeliveryCosts = 49.0;
-            */
+            _orderId = OrderId;
+            _pizza = pizza;
+            _customer = customer;
+            
         }
         #endregion
 
         #region Properties
+        public Pizza _pizza
+        
+        {
+            get { return _pizza; }
+            set { _pizza = value; }
+        }
+        public Customer _customer
+        {
+            get { return _customer; }
+            set { _customer = value; }
+        }
+        
         public double TaxProcent
         { 
             get { return _taxProcent; } 
@@ -41,17 +55,33 @@ namespace PizzaStore
             get { return _deliveryCosts; }
             set { _deliveryCosts = value; }
         }
+        public int OrderId
+        {
+            get { return _orderId; }
+            set { _orderId = value; }
+        }
+       
+
 
         #endregion
 
         #region Methods
-        /*
+
+
         public double CalcTotalPrice()
 
         {
-            totalPrice = ((p * _taxProcent) + _deliveryCosts);
+            
+           double TotalPrice = (Pizza.Price * TaxProcent) + DeliveryCosts;
+
+           return TotalPrice;  
         }
-        */
+
+        public override string ToString()
+        {
+            return $"Moms {TaxProcent} - Leverings omkostninger {DeliveryCosts}";
+        }
+
         #endregion
     }
 }
