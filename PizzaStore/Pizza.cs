@@ -40,7 +40,7 @@ namespace PizzaStore
 
         public override string ToString()
         {
-            return $"name: {Name} - Price: {Price}";
+            return $"name: {Name} \n - Price: {Price} \n";
         }
 
         #endregion

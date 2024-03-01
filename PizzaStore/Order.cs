@@ -13,7 +13,7 @@ namespace PizzaStore
         #region Instance fields
 
         private double _taxProcent = 1.25;
-        private double _deliveryCosts = 49;
+        private double _deliveryCosts = 40;
         private int _orderId = 0;
         private Pizza _pizza;
         private Customer _customer;
@@ -21,9 +21,9 @@ namespace PizzaStore
 
         #region Constructor
 
-        public Order(int OrderId, Customer customer, Pizza pizza )
+        public Order(int orderId, Customer customer, Pizza pizza )
         {
-            _orderId = OrderId;
+            _orderId = orderId;
             _pizza = pizza;
             _customer = customer;
             
@@ -37,7 +37,7 @@ namespace PizzaStore
             get { return _pizza; }
             set { _pizza = value; }
         }
-        public Customer customer
+        public Customer Customer
         {
             get { return _customer; }
             set { _customer = value; }
@@ -71,7 +71,7 @@ namespace PizzaStore
         public double CalcTotalPrice()
 
         {
-            
+           
            double TotalPrice = (Pizza.Price * TaxProcent) + DeliveryCosts;
 
            return TotalPrice;  
@@ -79,7 +79,7 @@ namespace PizzaStore
 
         public override string ToString()
         {
-            return $"Moms {TaxProcent} - Leverings omkostninger {DeliveryCosts} Total price {CalcTotalPrice()}";
+            return $"customer{_customer.ToString()} pizza{_pizza.ToString()} Moms {TaxProcent} - Leverings omkostninger {DeliveryCosts} \n Total price {CalcTotalPrice()} ";
         }
 
         #endregion

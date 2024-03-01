@@ -11,17 +11,17 @@ namespace PizzaStore
     {
         #region Instance fields
         private string _name;
-        private int _order;
-        private int _orderNumber;
+        private string _adress;
+        private int _phoneNumber;
 
         #endregion
 
         #region Constructor
-        public Customer(string Name)
+        public Customer(string Name, string Adress, int PhoneNumber)
         {
             _name = Name;
-            _order = Order;
-            _orderNumber = OrderNumber;
+            _adress = Adress;
+            _phoneNumber = PhoneNumber;
         }
 
         #endregion
@@ -33,21 +33,23 @@ namespace PizzaStore
             get { return _name; } 
         }
 
-        public int Order
+        public string Adress
         {
-            get { return _order; }
+            get { return _adress; }
         }
 
-        public int OrderNumber
+        public int PhoneNumber
         {
-            get { return _orderNumber; }
+            get { return _phoneNumber; }
         }
         #endregion
 
         #region Methods
         public override string ToString()
         {
-            return $"name: {Name}";
+            return $"name: {Name} \n " +
+                $"adress {Adress} \n" +
+                $"Phone Number {PhoneNumber} \n";
         }
         #endregion
     }
