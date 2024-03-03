@@ -12,7 +12,7 @@ namespace PizzaStore
     {
         #region Instance fields
 
-        private double _taxProcent = 1.25;
+        private double _taxPercent = 1.25;
         private double _deliveryCosts = 40;
         private int _orderId = 0;
         private Pizza _pizza;
@@ -35,30 +35,30 @@ namespace PizzaStore
         
         {
             get { return _pizza; }
-            set { _pizza = value; }
+            private set { _pizza = value; }
         }
         public Customer Customer
         {
             get { return _customer; }
-            set { _customer = value; }
+            private set { _customer = value; }
         }
         
-        public double TaxProcent
+        public double TaxPercent
         { 
-            get { return _taxProcent; } 
-            set { _taxProcent = value; } 
+            get { return _taxPercent; }
+            private set { _taxPercent = value; } 
         }
 
         public double DeliveryCosts 
         
         { 
             get { return _deliveryCosts; }
-            set { _deliveryCosts = value; }
+            private set { _deliveryCosts = value; }
         }
         public int OrderId
         {
             get { return _orderId; }
-            set { _orderId = value; }
+            private set { _orderId = value; }
         }
        
 
@@ -72,14 +72,19 @@ namespace PizzaStore
 
         {
            
-           double TotalPrice = (Pizza.Price * TaxProcent) + DeliveryCosts;
+           double TotalPrice = (Pizza.Price * TaxPercent) + DeliveryCosts;
 
            return TotalPrice;  
         }
 
         public override string ToString()
         {
-            return $"customer{_customer.ToString()} pizza{_pizza.ToString()} Moms {TaxProcent} - Leverings omkostninger {DeliveryCosts} \n Total price {CalcTotalPrice()} ";
+            return $"Order ID {OrderId} \n" +
+                $"Customer {_customer.ToString()}" +
+                $"Pizza {_pizza.ToString()}" +
+                $"Tax 25%" +
+                $" + Delivery Costs {DeliveryCosts} \n" +
+                $"Total price {CalcTotalPrice()} ";
         }
 
         #endregion

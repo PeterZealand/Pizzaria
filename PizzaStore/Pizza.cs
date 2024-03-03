@@ -10,29 +10,37 @@ namespace PizzaStore
     {
         #region Instance fields
 
+        private int _menuNumber;
         private string _name;
         private int _price;
 
         #endregion
 
         #region Constructor
-          public Pizza(string Name, int Price )
+          public Pizza(int menuNumber, string name, int price )
         {
-            _name = Name;
-            _price = Price;
+            _menuNumber = menuNumber;
+            _name = name;
+            _price = price;
         }
         #endregion
 
         #region Properties
+
+        public int MenuNumber
+        {
+            get { return _menuNumber; }
+            private set { _menuNumber = value; }
+        }   
         public string Name
         {
             get { return _name; }
-            set { _name = value; }
+            private set { _name = value; }
         }
         public int Price
         { 
-            get { return _price; } 
-            set { _price = value; } 
+            get { return _price; }
+            private set { _price = value; } 
         }
         #endregion
 
@@ -40,7 +48,9 @@ namespace PizzaStore
 
         public override string ToString()
         {
-            return $"name: {Name} \n - Price: {Price} \n";
+            return $"Nr.{MenuNumber}: " +
+                $"{Name} \n" +
+                $"Price: {Price} \n";
         }
 
         #endregion

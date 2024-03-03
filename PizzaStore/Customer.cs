@@ -17,11 +17,11 @@ namespace PizzaStore
         #endregion
 
         #region Constructor
-        public Customer(string Name, string Adress, int PhoneNumber)
+        public Customer(string name, string adress, int phoneNumber)
         {
-            _name = Name;
-            _adress = Adress;
-            _phoneNumber = PhoneNumber;
+            _name = name;
+            _adress = adress;
+            _phoneNumber = phoneNumber;
         }
 
         #endregion
@@ -30,26 +30,29 @@ namespace PizzaStore
 
         public string Name 
         { 
-            get { return _name; } 
+            get { return _name; }
+            private set { _name = value; }
         }
 
         public string Adress
         {
             get { return _adress; }
+            private set { _adress = value; }
         }
 
         public int PhoneNumber
         {
             get { return _phoneNumber; }
+            private set { _phoneNumber = value; }
         }
         #endregion
 
         #region Methods
         public override string ToString()
         {
-            return $"name: {Name} \n " +
-                $"adress {Adress} \n" +
-                $"Phone Number {PhoneNumber} \n";
+            return $"Name: {Name} \n" +
+                $"Adress: {Adress} \n" +
+                $"Phone Number: {PhoneNumber} \n";
         }
         #endregion
     }
