@@ -56,11 +56,11 @@ namespace PizzaStore
             Customer customer2 = new Customer("Morten", "Roskilde", 87654321);
             Customer customer3 = new Customer("Paprika", "Hårlev", 13245768);
 
-            Order order1 = new Order(1, customer1, pizza1);
+            Order order1 = new Order(customer1, pizza1);
 
-            Order order2 = new Order(2, customer2, pizza2);
+            Order order2 = new Order(customer2, pizza2);
 
-            Order order3 = new Order(3, customer3, pizza3);
+            Order order3 = new Order(customer3, pizza3);
 
             Console.WriteLine();
             Console.WriteLine("Todays Menu?");

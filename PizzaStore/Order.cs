@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace PizzaStore
@@ -14,18 +15,19 @@ namespace PizzaStore
 
         private double _taxPercent = 1.25;
         private double _deliveryCosts = 40;
-        private int _orderId = 0;
+        private static int _orderId = 1;
         private Pizza _pizza;
         private Customer _customer;
         #endregion
 
         #region Constructor
 
-        public Order(int orderId, Customer customer, Pizza pizza )
+        public Order(Customer customer, Pizza pizza )
         {
-            _orderId = orderId;
+            
             _pizza = pizza;
             _customer = customer;
+            _orderId = OrderId();
             
         }
         #endregion
@@ -55,18 +57,15 @@ namespace PizzaStore
             get { return _deliveryCosts; }
             private set { _deliveryCosts = value; }
         }
-        public int OrderId
-        {
-            get { return _orderId; }
-            private set { _orderId = value; }
-        }
-       
-
 
         #endregion
 
         #region Methods
-
+        public int OrderId()
+        {
+            int OrderId = _orderId++;
+            return OrderId;
+        }
 
         public double CalcTotalPrice()
 
@@ -79,7 +78,7 @@ namespace PizzaStore
 
         public override string ToString()
         {
-            return $"Order ID {OrderId} \n" +
+            return $"Order ID {OrderId()} \n" +
                 $"Customer {_customer.ToString()}" +
                 $"Pizza {_pizza.ToString()}" +
                 $"Tax 25%" +
