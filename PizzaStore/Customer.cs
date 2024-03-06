@@ -48,6 +48,7 @@ namespace PizzaStore
         #endregion
 
         #region Methods
+        //Method for console writing info from Customer class
         public override string ToString()
         {
             return $"Name: {Name} \n" +

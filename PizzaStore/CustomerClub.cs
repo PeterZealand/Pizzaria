@@ -11,7 +11,7 @@ namespace PizzaStore
     internal class CustomerClub
     {
         #region Instance fields
-        private double _clubDiscount = 1.05;
+        private double _clubDiscount = 0.95;
 
         #endregion
 

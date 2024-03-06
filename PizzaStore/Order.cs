@@ -61,12 +61,13 @@ namespace PizzaStore
         #endregion
 
         #region Methods
+        // method used to generate a unique order ID for each order
         public int OrderId()
         {
             int OrderId = _orderId++;
             return OrderId;
         }
-
+        //method for calculating the total order price
         public double CalcTotalPrice()
 
         {
@@ -75,7 +76,7 @@ namespace PizzaStore
 
            return TotalPrice;  
         }
-
+        //Method for console writing info from Order class + info from the pizza and custommer class, used as an invoice
         public override string ToString()
         {
             return $"Order ID {OrderId()} \n" +

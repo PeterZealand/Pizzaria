@@ -11,16 +11,16 @@ namespace PizzaStore
         #region Instance fields
 
         private int _menuNumber;
-        private string _name;
+        private string _pizzaName;
         private int _price;
 
         #endregion
 
         #region Constructor
-          public Pizza(int menuNumber, string name, int price )
+          public Pizza(int menuNumber, string pizzaName, int price )
         {
             _menuNumber = menuNumber;
-            _name = name;
+            _pizzaName = pizzaName;
             _price = price;
         }
         #endregion
@@ -32,10 +32,10 @@ namespace PizzaStore
             get { return _menuNumber; }
             private set { _menuNumber = value; }
         }   
-        public string Name
+        public string PizzaName
         {
-            get { return _name; }
-            private set { _name = value; }
+            get { return _pizzaName; }
+            private set { _pizzaName = value; }
         }
         public int Price
         { 
@@ -45,11 +45,11 @@ namespace PizzaStore
         #endregion
 
         #region Methods
-
+        //Method for console writing info from pizza class
         public override string ToString()
         {
             return $"Nr.{MenuNumber}: " +
-                $"{Name} \n" +
+                $"{PizzaName} \n" +
                 $"Price: {Price} \n";
         }
 
