@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,13 +66,13 @@ namespace Pizzaria
                 Console.WriteLine();
                 switch (MenuChoice)
                 {
-                    case 1:
+                    case 1: //Show Menu
                         Console.Clear();
                         _menuCatalog.PrintMenu();
                         Console.Write("Hit any key to return to Pizza administration");
                         Console.ReadKey();
                         break;
-                    case 2:
+                    case 2: //Search Pizza
                         Console.Clear();
                         Console.WriteLine("search for pizza by menu number");
                         try
@@ -86,14 +87,17 @@ namespace Pizzaria
                         Console.Write("Hit any key to return to Pizza administration");
                         Console.ReadKey();
                         break;
-                    case 3:
+                    case 3: // Create new pizza
                         Console.Clear();
                         _menuCatalog.PrintMenu();
-                        Console.Write("To create new pizza press Enter:");
                         try
                         {
-                            Pizza userChoise1 = Pizza.Parse(Console.ReadLine());
-                            _menuCatalog.NewPizza(userChoise1);
+                            Console.WriteLine("Input Pizza name:");
+                            string pizzaName = Console.ReadLine();
+                            Console.WriteLine("Input Pizza price (between 1 and 200):");
+                            int pizzaPrice = int.Parse(Console.ReadLine());
+                            Pizza newPizza = new Pizza(pizzaName, pizzaPrice);
+                            Pizza p = _menuCatalog.NewPizza(newPizza);
                             _menuCatalog.PrintMenu();
                         }
                         catch (FormatException e)
@@ -107,7 +111,7 @@ namespace Pizzaria
                         Console.Write("Hit any key to return to Pizza administration");
                         Console.ReadKey();
                         break;
-                    case 4:
+                    case 4: //update pizza
                         Console.Clear();
                         _menuCatalog.PrintMenu();
                         Console.WriteLine("Update Pizza by menu number");
@@ -123,7 +127,7 @@ namespace Pizzaria
                         Console.Write("Hit any key to return to Pizza administration");
                         Console.ReadKey();
                         break;
-                    case 5:
+                    case 5: // Delete Pizza
                         
                             Console.Clear();
                         _menuCatalog.PrintMenu();
@@ -145,7 +149,7 @@ namespace Pizzaria
                             Console.ReadKey();
 
                         break;
-                    case 6:
+                    case 6: // exit
                         run = false;
                         Console.WriteLine("Closing down Pizza administration");
                         break;

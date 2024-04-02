@@ -150,26 +150,32 @@ namespace Pizzaria
 
         public Pizza NewPizza(Pizza pizza)
         {
-            //try
-            //{
-                Console.WriteLine("Input Pizza name:");
-                pizza.PizzaName = Console.ReadLine();
+                bool creation = false;
+                
+                
 
-                Console.WriteLine("Input Pizza price (between 1 and 200):");
-                int price;
-                bool isValidPrice = int.TryParse(Console.ReadLine(), out price);
-
-                if (isValidPrice && price >= 1 && price <= 200)
+                if (pizza.Price >= 1 && pizza.Price <= 200)
                 {
-                    pizza.Price = price;
+                    
                     _pizzas.Add(pizza);
+                    creation = true;
+
+                    if (creation)
+                    {
+                        Pizza.Reset();
+                        foreach (Pizza p in _pizzas)
+                        {
+                            p.MenuNumber = Pizza.MenuNumbers();
+                        }
                     return pizza;
+                    }
+                
                 }
-                else if (isValidPrice && price < 1)
+                else if (pizza.Price < 1)
                 {
                     throw new FormatException("Price must be greater than or equal to 1.");
                 }
-                else if (isValidPrice && price > 200)
+                else if (pizza.Price > 200)
                 {
                     throw new FormatException("Price must be less than or equal to 200.");
                 }
@@ -177,35 +183,10 @@ namespace Pizzaria
                 {
                     throw new FormatException("Price must be a number between 1 and 200.");
                 }
-            //}
-            //catch (FormatException e)
-            //{
-            //    Console.WriteLine(e.Message);
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine(e.Message);
-            //}
-            //return null;
+        
+            return null;
         }
 
-      
-
-        //Console.WriteLine("Input new Pizza name"),
-        //string UserUpdateName = Console.ReadLine();
-        //Console.WriteLine("Input new Pizza price");
-
-        //public int MenuChoise() 
-        //{
-        //    public int MenuChoice(List<string> menuItems)
-        //    { return 0 ; }
-
-        //}
-
-        //public override string ToString()
-        //{
-        //    return $"Nr.{MenuNumber}: ";
-        //}
         #endregion
     }
 }
