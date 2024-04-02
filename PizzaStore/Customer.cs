@@ -13,15 +13,17 @@ namespace PizzaStore
         private string _name;
         private string _adress;
         private int _phoneNumber;
+        private bool _customerClubMember;
 
         #endregion
 
         #region Constructor
-        public Customer(string name, string adress, int phoneNumber)
+        public Customer(string name, string adress, int phoneNumber, bool customerClubMember)
         {
             _name = name;
             _adress = adress;
             _phoneNumber = phoneNumber;
+            _customerClubMember = customerClubMember;
         }
 
         #endregion
@@ -44,6 +46,12 @@ namespace PizzaStore
         {
             get { return _phoneNumber; }
             private set { _phoneNumber = value; }
+        }
+        public bool CustomerClubMember
+
+        {
+            get { return _customerClubMember; }
+            private set { _customerClubMember = value; }
         }
         #endregion
 

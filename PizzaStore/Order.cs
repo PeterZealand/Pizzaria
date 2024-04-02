@@ -57,7 +57,7 @@ namespace PizzaStore
             get { return _deliveryCosts; }
             private set { _deliveryCosts = value; }
         }
-
+        
         #endregion
 
         #region Methods
@@ -67,23 +67,35 @@ namespace PizzaStore
             int OrderId = _orderId++;
             return OrderId;
         }
-        //method for calculating the total order price
+        //method for calculating the total order price + order price if customer club member
         public double CalcTotalPrice()
 
         {
-           
            double TotalPrice = (Pizza.Price * TaxPercent) + DeliveryCosts;
+
+            if (Customer.CustomerClubMember == true)
+            {
+                TotalPrice = TotalPrice * 0.95;
+            }
 
            return TotalPrice;  
         }
-        //Method for console writing info from Order class + info from the pizza and custommer class, used as an invoice
+        //Method for console writing info from Order class + info from the pizza and custommer class, used as an invoice with extra discount info if the Customer is a customer club member
         public override string ToString()
         {
+            string CClubMessage = "";
+
+            if (Customer.CustomerClubMember == true)
+            {
+                CClubMessage = "As a customer club member you get a 5% total price discount! \n";
+            }
+
             return $"Order ID {OrderId()} \n" +
                 $"Customer {_customer.ToString()}" +
                 $"Pizza {_pizza.ToString()}" +
                 $"Tax 25%" +
                 $" + Delivery Costs {DeliveryCosts} \n" +
+                $"{CClubMessage}"+
                 $"Total price {CalcTotalPrice()} ";
         }
 

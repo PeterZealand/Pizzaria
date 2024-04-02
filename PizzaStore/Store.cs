@@ -48,19 +48,19 @@ namespace PizzaStore
             //creation of Pizzas
             Pizza pizza1 = new Pizza(1, "Calzone", 80);
             Pizza pizza2 = new Pizza(2, "Hawaii", 70);
-            Pizza pizza3 = new Pizza(3, "Ham", 60);
+            Pizza pizza3 = new Pizza(3, "Vesuvio", 75);
 
             //creation of Customers
-            Customer customer1 = new Customer("Peter", "Holbæk", 12345678);
-            Customer customer2 = new Customer("Morten", "Roskilde", 87654321);
-            Customer customer3 = new Customer("Paprika", "Hårlev", 13245768);
+            Customer customer1 = new Customer("Peter", "Holbæk", 12345678,true);
+            Customer customer2 = new Customer("Morten", "Roskilde", 87654321, false);
+            Customer customer3 = new Customer("Paprika", "Hårlev", 13245768,true);
 
             //creation of Orders
             Order order1 = new Order(customer1, pizza1);
             Order order2 = new Order(customer2, pizza2);
             Order order3 = new Order(customer3, pizza3);
 
-
+     
             //layout for console and the use of the ToString() method gathered in the Order Class
             Console.WriteLine();
             Console.WriteLine("Todays Menu?");
