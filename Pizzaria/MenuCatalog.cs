@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -56,9 +57,6 @@ namespace Pizzaria
 
         public Pizza Search(int number)
         {
-            try
-            {
-
                 foreach (Pizza p in _pizzas)
                 {
                     if (p.MenuNumber == number)
@@ -66,26 +64,22 @@ namespace Pizzaria
                         Console.WriteLine($"Nr: {p.MenuNumber}\nName: {p.PizzaName} \nPrice: {p.Price}");
 
                         return p;
+                  
+                    }
+                    else
+                    {
+                        throw new FormatException($"No pizza found with menu number {number}");
                     }
 
+                
                 }
-                throw new Exception($"No pizza found with menu number {number}");
-                    }
-                    //catch (FormatException e)
-                    //{
-                    //    Console.WriteLine(e.Message);
-                    //}
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e.Message);
-            }
             return null;
+
         }
 
         public Pizza DeletePizza(int number) 
         {
-            try
-            {
+            
                 bool deletion = false;
                 foreach (Pizza p in _pizzas)
                 {
@@ -106,44 +100,37 @@ namespace Pizzaria
                         }
                         return p;
                     }
-                }
-                throw new Exception($"No pizza found with menu number {number}");
-            }
-                    catch (Exception e)
+                    else if(p.MenuNumber != number)
                     {
-                        Console.WriteLine(e.Message);
-                    
+                        throw new FormatException($"No pizza found with menu number {number}");
                     }
-            return null;
-            
-
+                    else
+                    {
+                        throw new FormatException($"Search must be a number");
+                    }
+                
+                }
+                return null;
+                
         }
+
         public Pizza Update(int number)
         {
-            try
-            {
+            
                 foreach (Pizza p in _pizzas)
                 {
                     if (p.MenuNumber == number)
                     {
-                        Console.WriteLine("Input new Pizza name");
-                        p.PizzaName = Console.ReadLine();
-                        Console.WriteLine("Input new Pizza price");
-                        p.Price = int.Parse(Console.ReadLine());
+                        //Console.WriteLine("Input new Pizza name");
+                        //p.PizzaName = Console.ReadLine();
+                        //Console.WriteLine("Input new Pizza price");
+                        //p.Price = int.Parse(Console.ReadLine());
                         return p;
                     }
-
-                }
-            
-                throw new Exception($"No pizza found with menu number {number}");
-            }
-                catch (FormatException e)
-                {
-                    Console.WriteLine(e.Message);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine($"Pizza not updated. {e.Message}");
+                    else
+                    {
+                        throw new FormatException($"No pizza found with menu number {number}");
+                    }
                 }
             return null;
         }
@@ -151,8 +138,6 @@ namespace Pizzaria
         public Pizza NewPizza(Pizza pizza)
         {
                 bool creation = false;
-                
-                
 
                 if (pizza.Price >= 1 && pizza.Price <= 200)
                 {
@@ -171,17 +156,17 @@ namespace Pizzaria
                     }
                 
                 }
-                else if (pizza.Price < 1)
-                {
-                    throw new FormatException("Price must be greater than or equal to 1.");
-                }
-                else if (pizza.Price > 200)
-                {
-                    throw new FormatException("Price must be less than or equal to 200.");
-                }
-                else
+                else if (pizza.Price < 1 || pizza.Price > 200)
                 {
                     throw new FormatException("Price must be a number between 1 and 200.");
+                }
+                //else if (pizza.Price > 200)
+                //{
+                //    throw new FormatException("Price must be less than or equal to 200.");
+                //}
+                else
+                {
+                    throw new Exception("Price cannot be a Letter, Price must be a number between 1 and 200.");
                 }
         
             return null;

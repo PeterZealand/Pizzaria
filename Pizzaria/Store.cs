@@ -46,7 +46,7 @@ namespace Pizzaria
             Pizza pizza9 = new Pizza("Gorgonzola", 97);
             Pizza pizza10 = new Pizza("Contadina", 92);
 
-            //kan pizza "create" flyttes så den automatisk sker når der oprettes en pizza
+            //TODO kan pizza "create" flyttes så den automatisk sker når der oprettes en pizza
             menuCatalog.Create(pizza1);
             menuCatalog.Create(pizza2);
             menuCatalog.Create(pizza3);
@@ -58,46 +58,7 @@ namespace Pizzaria
             menuCatalog.Create(pizza9);
             menuCatalog.Create(pizza10);
 
-            //menuCatalog.PrintMenu();
-
-            //Console.WriteLine("search for pizza by menu number");
-            //int UserChoise = int.Parse(Console.ReadLine());
-            //menuCatalog.Search(UserChoise);
-
-            //Console.WriteLine("Delete Pizza by menu number");
-            //int UserChoise2 = int.Parse(Console.ReadLine());
-            //menuCatalog.DeletePizza(UserChoise2);
-
-            //Console.WriteLine("Update Pizza by menu number");
-            //int UserChoise3 = int.Parse(Console.ReadLine());
-            //menuCatalog.Update(UserChoise3);
-
-            //Console.WriteLine("Create new pizza:");
-            //Console.WriteLine("Input Pizza Name first, then Price:");
-            ////var userInput4 = var.Parse(Console.ReadLine());
-            //menuCatalog.NewPizza();
-            //menuCatalog.PrintMenu();
-
-            //menuCatalog.PrintMenu();
-            //Console.WriteLine("* * * * * * * * * * * * * * * * * * * *");
-
-            //menuCatalog.DeletePizza(1);
-            //////pizza1.Reset();
-
-            //menuCatalog.PrintMenu();
-
-            //Console.WriteLine("* * * * * * * * * * * * * * * * * * * *");
-
-            ////Toppings Top1 = new Toppings("ham", 10);
-
-            //menuCatalog.DeletePizza(pizza10);
-            ////pizza1.Reset();
-
-            //menuCatalog.PrintMenu();
-
-
-
-            //     Use a switch for menu choise
+            
         }
         public void UI()
         {

@@ -10,10 +10,7 @@ namespace Pizzaria
     {
         #region Instance fields
         private static int _menuNumber = 1;
-        public static void Reset()
-        {
-            _menuNumber = 0;
-        }
+        
         #endregion
 
         #region Constructor
@@ -55,6 +52,11 @@ namespace Pizzaria
         {
             _menuNumber++;
             return _menuNumber;
+        }
+
+        public static void Reset()
+        {
+            _menuNumber = 0;
         }
 
         public static Pizza Parse(string input)
