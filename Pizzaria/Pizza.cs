@@ -59,10 +59,11 @@ namespace Pizzaria
             _menuNumber = 0;
         }
 
-        public static Pizza Parse(string input)
-        {
-            return new Pizza();
-        }
+        //not used in the current code, was used erlier to be able to parse pizza input
+        //public static Pizza Parse(string input)
+        //{
+        //    return new Pizza();
+        //}
         
         public override string ToString()
         {

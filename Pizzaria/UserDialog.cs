@@ -79,7 +79,8 @@ namespace Pizzaria
                         try
                         {
                             int UserChoise = int.Parse(Console.ReadLine());
-                            _menuCatalog.Search(UserChoise);
+                            Pizza p =_menuCatalog.Search(UserChoise);
+                            Console.WriteLine($"Nr: {p.MenuNumber}\nName: {p.PizzaName} \nPrice: {p.Price}");
                         }
                         catch (FormatException e)
                         {
@@ -144,15 +145,16 @@ namespace Pizzaria
                             try
                             {
                                 int UserChoise2 = int.Parse(Console.ReadLine());
-                                _menuCatalog.DeletePizza(UserChoise2);
+                                Pizza p = _menuCatalog.DeletePizza(UserChoise2);
+                                Console.WriteLine($"You deleted pizza no. {p.MenuNumber}. {p.PizzaName}");
+                                Console.WriteLine();
+                                Console.WriteLine("New menu:");
+                                _menuCatalog.PrintMenu();
                             }
                             catch (FormatException e)
                             {
                                 Console.WriteLine(e.Message);
                             }
-                            Console.WriteLine();
-                            Console.WriteLine("New menu:");
-                            _menuCatalog.PrintMenu();
                             Console.WriteLine();
                             Console.Write("Hit any key to return to Pizza administration");
                             Console.ReadKey();

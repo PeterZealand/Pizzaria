@@ -32,8 +32,6 @@ namespace Pizzaria
             Console.WriteLine("Welcome to Big Mammas Pizza Take Away");
             Console.WriteLine("* * * * * * * * * * * * * * * * * * * *");
 
-
-
             
             Pizza pizza1 = new Pizza("Margherita", 80);
             Pizza pizza2 = new Pizza("Vesuvio", 92);

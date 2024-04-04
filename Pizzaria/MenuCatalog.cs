@@ -11,12 +11,12 @@ namespace Pizzaria
     public class MenuCatalog
     {
         #region Instance fields
-        
+
 
         #endregion
 
         #region Constructor
-         
+
         #endregion
 
         #region Properties
@@ -24,16 +24,16 @@ namespace Pizzaria
         #endregion
 
         #region collections
+        //if a dictionary is used
         //private Dictionary<int, Pizza> _pizzas = new Dictionary<int, Pizza>();
-
+        //_pizzas.Add(Pizza._menuNumber, pizza);
         private List<Pizza> _pizzas = new List<Pizza>();
 
         public void Create(Pizza pizza)
         {
         //List:
         _pizzas.Add(pizza);
-            //_pizzas.Add(Pizza._menuNumber, pizza);
-
+            
         }
 
         #endregion
@@ -49,7 +49,7 @@ namespace Pizzaria
             foreach (Pizza p in _pizzas) 
             {
                  Console.WriteLine($"{p}");
-                //{_pizzas.IndexOf(p)} . 
+                //{_pizzas.IndexOf(p)} also a way to do it but starts at count 0. 
             }
 
         }
@@ -61,20 +61,12 @@ namespace Pizzaria
                 {
                     if (p.MenuNumber == number)
                     {
-                        Console.WriteLine($"Nr: {p.MenuNumber}\nName: {p.PizzaName} \nPrice: {p.Price}");
-
                         return p;
-                  
                     }
-                    else
-                    {
-                        throw new FormatException($"No pizza found with menu number {number}");
-                    }
-
-                
                 }
-            return null;
-
+            {
+                throw new FormatException($"No pizza found with menu number {number}");
+            }
         }
 
         public Pizza DeletePizza(int number) 
@@ -86,7 +78,7 @@ namespace Pizzaria
                     if (p.MenuNumber == number)
                     {
                         _pizzas.Remove(p);
-                        Console.WriteLine($"You deleted pizza no. {p.MenuNumber}. {p.PizzaName}");
+
 
                         deletion = true;
 
@@ -100,17 +92,17 @@ namespace Pizzaria
                         }
                         return p;
                     }
-                    else if(p.MenuNumber != number)
-                    {
-                        throw new FormatException($"No pizza found with menu number {number}");
-                    }
-                    else
-                    {
-                        throw new FormatException($"Search must be a number");
-                    }
-                
                 }
-                return null;
+                if (!deletion)
+                {
+                    throw new FormatException($"No pizza found with menu number {number}");
+                }
+                //TODO is not caught anymore standart message is shown when anything other than a number is the input
+                //else
+                //{
+                //    throw new FormatException($"Search must be a number");
+                //}
+            return null;
                 
         }
 
@@ -127,12 +119,13 @@ namespace Pizzaria
                         //p.Price = int.Parse(Console.ReadLine());
                         return p;
                     }
-                    else
-                    {
-                        throw new FormatException($"No pizza found with menu number {number}");
-                    }
+                    
+
                 }
-            return null;
+            {
+                throw new FormatException($"No pizza found with menu number {number}");
+            }
+           
         }
 
         public Pizza NewPizza(Pizza pizza)
@@ -160,14 +153,16 @@ namespace Pizzaria
                 {
                     throw new FormatException("Price must be a number between 1 and 200.");
                 }
+                //incorporated into one else if
                 //else if (pizza.Price > 200)
                 //{
                 //    throw new FormatException("Price must be less than or equal to 200.");
                 //}
-                else
-                {
-                    throw new Exception("Price cannot be a Letter, Price must be a number between 1 and 200.");
-                }
+                //does not work after moving writelines to UserDialog
+                //else
+                //{
+                //    throw new Exception("Price cannot be a Letter, Price must be a number between 1 and 200.");
+                //}
         
             return null;
         }
