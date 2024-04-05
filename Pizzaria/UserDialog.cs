@@ -32,7 +32,7 @@ namespace Pizzaria
                 Console.WriteLine(choice);
             }
 
-            Console.Write("Choose an operation: ");
+            Console.Write("What action do you want to take?: ");
             string input = Console.ReadKey().KeyChar.ToString();
 
             try
@@ -108,10 +108,10 @@ namespace Pizzaria
                         {
                             Console.WriteLine(e.Message);
                         }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine(e.Message);
-                        }
+                        //catch (Exception e) - not working atm always shows standart messages when a letter is input instead of a number
+                        //{
+                        //    Console.WriteLine(e.Message);
+                        //}
                         Console.Write("Hit any key to return to Pizza administration");
                         Console.ReadKey();
                         break;

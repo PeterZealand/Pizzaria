@@ -11,12 +11,12 @@ namespace Pizzaria
     public class Store
     {
         #region Instance fields
-
+        public MenuCatalog menuCatalog = new MenuCatalog();
 
         #endregion
 
         #region Constructor
-        public MenuCatalog menuCatalog = new MenuCatalog();
+
         #endregion
 
         #region Properties
